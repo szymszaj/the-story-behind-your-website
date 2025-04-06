@@ -20,7 +20,7 @@ const Footer = () => {
               href="#home"
               className="text-xl font-bold text-gradient tracking-tight"
             >
-              The Story Behind Your Website
+              Twoja Strona, Twoja Historia
             </a>
             <p className="mt-2 text-sm text-muted-foreground">
               Tworzę strony internetowe, które opowiadają Twoją historię.
@@ -28,7 +28,7 @@ const Footer = () => {
           </div>
 
           <div className="text-sm text-muted-foreground">
-            &copy; {currentYear} The Story Behind Your Website. Wszelkie prawa zastrzeżone.
+            &copy; {currentYear} Twoja Strona, Twoja Historia. Wszelkie prawa zastrzeżone.
           </div>
 
           <button

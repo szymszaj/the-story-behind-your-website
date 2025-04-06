@@ -42,7 +42,7 @@ const Navbar = () => {
           href="#home"
           className="text-xl font-bold text-gradient tracking-tight md:text-2xl"
         >
-          The Story Behind Your Website
+          Twoja Strona, Twoja Historia
         </a>
 
         {/* Desktop menu */}

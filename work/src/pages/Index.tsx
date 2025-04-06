@@ -10,7 +10,7 @@ import ParticleBackground from "@/components/ParticleBackground";
 
 const Index = () => {
   useEffect(() => {
-    document.title = "The Story Behind Your Website - Tworzę strony internetowe, które opowiadają Twoją historię";
+    document.title = "Twoja Strona, Twoja Historia - Tworzę strony internetowe, które opowiadają Twoją historię";
   }, []);
 
   return (
