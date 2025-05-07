@@ -1,4 +1,3 @@
-
 import { ArrowUp } from "lucide-react";
 
 const Footer = () => {
@@ -28,7 +27,8 @@ const Footer = () => {
           </div>
 
           <div className="text-sm text-muted-foreground">
-            &copy; {currentYear} Twoja Strona, Twoja Historia. Wszelkie prawa zastrzeżone.
+            &copy; {currentYear} Twoja Strona, Twoja Historia. Wszelkie prawa
+            zastrzeżone.
           </div>
 
           <button

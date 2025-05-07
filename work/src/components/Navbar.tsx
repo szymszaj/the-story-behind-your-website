@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -45,7 +44,6 @@ const Navbar = () => {
           Twoja Strona, Twoja Historia
         </a>
 
-        {/* Desktop menu */}
         <div className="hidden md:flex space-x-8">
           {navItems.map((item) => (
             <a
@@ -58,7 +56,6 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Mobile menu button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className="md:hidden text-foreground"
@@ -67,10 +64,9 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile menu panel */}
       {mobileMenuOpen && (
-        <div className="md:hidden glass-morphism absolute w-full py-4 mt-2 animate-fade-in">
-          <div className="container-wide flex flex-col space-y-4">
+        <div className="md:hidden glass-morphism absolute w-full py-4 mt-2 animate-fade-in !bg-[#09090B]">
+          <div className="container-wide flex flex-col space-y-4 bg-[#09090B]">
             {navItems.map((item) => (
               <a
                 key={item.name}
