@@ -3,7 +3,6 @@ import {
   LayoutGrid,
   Palette,
   Brush,
-  Monitor,
   Smartphone,
   Newspaper,
   LayoutList,
