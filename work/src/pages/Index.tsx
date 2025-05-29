@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
@@ -10,7 +9,8 @@ import ParticleBackground from "@/components/ParticleBackground";
 
 const Index = () => {
   useEffect(() => {
-    document.title = "Twoja Strona, Twoja Historia - Tworzę strony internetowe, które opowiadają Twoją historię";
+    document.title =
+      "Twoja Strona, Twoja Historia - Tworzę strony internetowe, które opowiadają Twoją historię";
   }, []);
 
   return (

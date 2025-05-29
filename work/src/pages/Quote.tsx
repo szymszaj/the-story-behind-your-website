@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -11,7 +10,7 @@ const Quote = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     idea: "",
-    effect: ""
+    effect: "",
   });
 
   const handleChange = (
@@ -23,18 +22,20 @@ const Quote = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
-    // Construct the mailto URL with the form data in the body
-    const subject = encodeURIComponent("Zapytanie o wycenę strony internetowej");
+
+    const subject = encodeURIComponent(
+      "Zapytanie o wycenę strony internetowej"
+    );
     const body = encodeURIComponent(
       `Pomysł na stronę: ${formData.idea}\n\nPożądany efekt: ${formData.effect}`
     );
-    
+
     window.location.href = `mailto:kontakt@example.com?subject=${subject}&body=${body}`;
-    
+
     toast({
       title: "Przekierowuję do formularza email",
-      description: "Twoje zapytanie zostanie wysłane przez Twojego klienta pocztowego."
+      description:
+        "Twoje zapytanie zostanie wysłane przez Twojego klienta pocztowego.",
     });
   };
 
@@ -42,23 +43,26 @@ const Quote = () => {
     <div className="min-h-screen relative bg-background">
       <ParticleBackground />
       <div className="container-wide py-20">
-        <a 
-          href="/" 
+        <a
+          href="/"
           className="absolute top-8 left-8 text-muted-foreground hover:text-foreground transition-colors"
         >
           ← Powrót do strony głównej
         </a>
-        
+
         <div className="max-w-3xl mx-auto pt-16">
           <Card className="bg-secondary/40 border-white/5">
             <CardHeader>
-              <CardTitle className="text-2xl text-center text-gradient">Wyceń swój projekt</CardTitle>
+              <CardTitle className="text-2xl text-center text-gradient">
+                Wyceń swój projekt
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground mb-6 text-center">
-                Opisz swój pomysł na stronę oraz pożądany efekt, a my przygotujemy dla Ciebie indywidualną wycenę.
+                Opisz swój pomysł na stronę oraz pożądany efekt, a my
+                przygotujemy dla Ciebie indywidualną wycenę.
               </p>
-              
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
                   <label htmlFor="idea" className="text-sm font-medium">
