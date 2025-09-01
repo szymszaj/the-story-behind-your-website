@@ -13,7 +13,7 @@ const pricingPlans = [
   {
     id: 1,
     name: "Basic",
-    price: "~1199 zł",
+    price: "~1099 zł",
     description: "Idealne rozwiązanie dla małych firm i osób prywatnych.",
     features: [
       "Strona typu one-page",
