@@ -29,12 +29,12 @@ const Contact = () => {
             </a>
 
             <a
-              href="mailto:szymonzych868@gmail.com"
+              href="mailto:visionboost321@gmail.com"
               className="flex flex-col items-center p-6 bg-secondary/40 rounded-lg border border-white/5 hover:border-white/20 transition-all duration-300 hover:scale-105"
             >
               <Mail size={32} className="mb-4 text-primary" />
               <h3 className="text-lg font-medium mb-2">Email</h3>
-              <p className="text-muted-foreground">szymonzych868@gmail.com</p>
+              <p className="text-muted-foreground">visionboost321@gmail.com</p>
             </a>
           </div>
         </div>
