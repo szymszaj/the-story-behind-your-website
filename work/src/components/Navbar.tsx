@@ -3,10 +3,10 @@ import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { name: "Home", href: "#home" },
-  { name: "Projects", href: "#projects" },
-  { name: "Pricing", href: "#pricing" },
-  { name: "Contact", href: "#contact" },
+  { name: "Strona Główna", href: "#home" },
+  { name: "Projekty", href: "#projects" },
+  { name: "Cennik", href: "#pricing" },
+  { name: "Kontakt", href: "#contact" },
 ];
 
 const Navbar = () => {
