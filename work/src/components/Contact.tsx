@@ -1,43 +1,32 @@
-import { Phone, Mail } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Contact = () => {
   return (
     <section
       id="contact"
-      className="section-padding bg-gradient-to-b from-secondary/20 to-background"
+      className="section-padding bg-gradient-to-b from-secondary/20 to-background relative overflow-hidden"
     >
-      <div className="container-wide">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
-            Kontakt
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Masz pytania? Chcesz omówić swój projekt? Skontaktuj się ze mną, a
-            odpowiem najszybciej jak to możliwe.
-          </p>
-        </div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/10 rounded-full blur-3xl -z-10" />
 
-        <div className="max-w-3xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-center">
-            <a
-              href="tel:+48695615115"
-              className="flex flex-col items-center p-6 bg-secondary/40 rounded-lg border border-white/5 hover:border-white/20 transition-all duration-300 hover:scale-105"
-            >
-              <Phone size={32} className="mb-4 text-primary" />
-              <h3 className="text-lg font-medium mb-2">Telefon</h3>
-              <p className="text-muted-foreground">+48 695 615 115</p>
-            </a>
+      <div className="container-wide text-center">
+        <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white group">
+          Gotowy na rozpoczęcie <br />
+          <span className="text-gradient">współpracy?</span>
+        </h2>
 
-            <a
-              href="mailto:visionboost321@gmail.com"
-              className="flex flex-col items-center p-6 bg-secondary/40 rounded-lg border border-white/5 hover:border-white/20 transition-all duration-300 hover:scale-105"
-            >
-              <Mail size={32} className="mb-4 text-primary" />
-              <h3 className="text-lg font-medium mb-2">Email</h3>
-              <p className="text-muted-foreground">visionboost321@gmail.com</p>
-            </a>
-          </div>
-        </div>
+        <p className="text-muted-foreground max-w-2xl mx-auto mb-10 text-lg">
+          Skontaktuj się z nami i omówmy, jak możemy pomóc Ci osiągnąć Twoje
+          cele biznesowe. Twój sukces jest naszym priorytetem.
+        </p>
+
+        <Link
+          to="/contact"
+          className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 rounded-full font-medium text-lg hover:bg-white/90 hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)]"
+        >
+          Skontaktuj się z nami
+          <ArrowRight size={20} />
+        </Link>
       </div>
     </section>
   );
