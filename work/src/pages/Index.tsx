@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
+import About from "@/components/About";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
 import Pricing from "@/components/Pricing";
@@ -19,6 +20,7 @@ const Index = () => {
       <Navbar />
       <main>
         <Hero />
+        <About />
         <Projects />
         <Pricing />
         <Contact />
