@@ -34,7 +34,7 @@ const Quote = () => {
       `Imię: ${formData.name}\nEmail: ${formData.email}\n\nPomysł na stronę: ${formData.idea}\n\nPożądany efekt: ${formData.effect}`,
     );
 
-    window.location.href = `mailto:visionboost321@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:szymonzych936@gmail.com?subject=${subject}&body=${body}`;
 
     toast({
       title: "Otwieram klienta poczty...",

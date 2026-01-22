@@ -1,5 +1,6 @@
 import { ArrowUp, Linkedin, Github, Mail, Phone, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
+import { navItems } from "@/data/navItems";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -12,23 +13,17 @@ const Footer = () => {
   };
 
   const footerLinks = {
-    menu: [
-      { name: "Strona Główna", href: "/" },
-      { name: "O mnie", href: "/#about" },
-      { name: "Projekty", href: "/projects" },
-      { name: "Proces", href: "/#process" },
-      { name: "Cennik", href: "/#pricing" },
-    ],
+    menu: navItems.filter((item) => item.name !== "Kontakt"),
     social: [
       {
         name: "GitHub",
         icon: <Github size={20} />,
-        href: "https://github.com",
+        href: "https://github.com/szymszaj",
       },
       {
         name: "LinkedIn",
         icon: <Linkedin size={20} />,
-        href: "https://linkedin.com",
+        href: "https://www.linkedin.com/in/szymon-zych-5b2950296/",
       },
     ],
     contact: [
@@ -39,8 +34,8 @@ const Footer = () => {
       },
       {
         icon: <Mail size={16} />,
-        text: "visionboost321@gmail.com",
-        href: "mailto:visionboost321@gmail.com",
+        text: "szymonzych936@gmail.com",
+        href: "mailto:szymonzych936@gmail.com",
       },
       { icon: <MapPin size={16} />, text: "Warszawa, Polska", href: "#" },
     ],
