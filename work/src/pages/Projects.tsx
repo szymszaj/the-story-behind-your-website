@@ -3,7 +3,7 @@ import { ArrowRight, ArrowLeft, ExternalLink } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { projects } from "@/data/constants";
+import { projects } from "@/data/projects";
 
 const Projects = () => {
   const [currentMobileIndex, setCurrentMobileIndex] = useState(0);
