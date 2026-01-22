@@ -2,15 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Link, useLocation } from "react-router-dom";
-
-const navItems = [
-  { name: "Strona Główna", href: "/" },
-  { name: "O mnie", href: "/#about" },
-  { name: "Projekty", href: "/projects" },
-  { name: "Proces", href: "/#process" },
-  { name: "Cennik", href: "/#pricing" },
-  { name: "Kontakt", href: "/contact" },
-];
+import { navItems } from "@/data/constants";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
