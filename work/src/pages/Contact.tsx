@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { sendContactEmail } from "@/services/emailService";
 import {
   Form,
   FormControl,
@@ -24,6 +25,9 @@ const formSchema = z.object({
   }),
   email: z.string().email({
     message: "Proszę podać poprawny adres e-mail.",
+  }),
+  phone: z.string().min(9, {
+    message: "Numer telefonu musi mieć co najmniej 9 znaków.",
   }),
   subject: z.string().min(5, {
     message: "Temat musi mieć co najmniej 5 znaków.",
@@ -41,6 +45,7 @@ const Contact = () => {
     defaultValues: {
       name: "",
       email: "",
+      phone: "",
       subject: "",
       message: "",
     },
@@ -54,15 +59,8 @@ const Contact = () => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
 
-    const SERVICE_ID = "YOUR_SERVICE_ID";
-    const TEMPLATE_ID = "YOUR_TEMPLATE_ID";
-    const PUBLIC_KEY = "YOUR_PUBLIC_KEY";
-
     try {
-      console.log("Form values:", values);
-
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-
+      await sendContactEmail(values);
       toast.success("Wiadomość została wysłana!", {
         description: "Skontaktujemy się z Tobą najszybciej jak to możliwe.",
       });
@@ -80,7 +78,6 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen relative flex flex-col">
-      {/* Background elements */}
       <div className="fixed inset-0 bg-background -z-20" />
       <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900/20 via-background to-background -z-10" />
 
@@ -89,7 +86,6 @@ const Contact = () => {
       <main className="flex-grow pt-24 pb-16">
         <div className="container-wide">
           <div className="max-w-xl mx-auto md:max-w-none grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24">
-            {/* Contact Information Column */}
             <div className="space-y-8 animate-fade-in-up">
               <div>
                 <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
@@ -124,7 +120,7 @@ const Contact = () => {
                   <div>
                     <h3 className="text-white font-medium mb-1">Email</h3>
                     <p className="text-muted-foreground">
-                     szymonzych936@gmail.com
+                      szymonzych936@gmail.com
                     </p>
                     <p className="text-xs text-muted-foreground mt-1">
                       Odpowiadamy w ciągu 24h
@@ -146,7 +142,6 @@ const Contact = () => {
                 </div>
               </div>
 
-              {/* Social Media */}
               <div className="pt-6">
                 <h3 className="text-white font-medium mb-4">
                   Znajdź nas w social mediach
@@ -165,7 +160,6 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Contact Form Column */}
             <div className="glass-card p-6 md:p-8 rounded-2xl animate-fade-in-up delay-100">
               <div className="mb-8">
                 <h2 className="text-2xl font-bold text-white mb-2">
@@ -210,6 +204,26 @@ const Contact = () => {
                         <FormControl>
                           <Input
                             placeholder="jan@example.com"
+                            className="bg-white/5 border-white/10 focus:border-indigo-500 text-white"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="phone"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-white">
+                          Numer telefonu
+                        </FormLabel>
+                        <FormControl>
+                          <Input
+                            placeholder="+48 123 456 789"
                             className="bg-white/5 border-white/10 focus:border-indigo-500 text-white"
                             {...field}
                           />

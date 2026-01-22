@@ -7,6 +7,7 @@ import { useToast } from "@/components/ui/use-toast";
 import ParticleBackground from "@/components/ParticleBackground";
 import { ArrowLeft, Send, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
+import { sendQuoteEmail } from "@/services/emailService";
 
 const Quote = () => {
   const { toast } = useToast();
@@ -16,6 +17,7 @@ const Quote = () => {
     idea: "",
     effect: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -24,22 +26,26 @@ const Quote = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
-    const subject = encodeURIComponent(
-      `Zapytanie projektowe od: ${formData.name}`,
-    );
-    const body = encodeURIComponent(
-      `Imię: ${formData.name}\nEmail: ${formData.email}\n\nPomysł na stronę: ${formData.idea}\n\nPożądany efekt: ${formData.effect}`,
-    );
-
-    window.location.href = `mailto:szymonzych936@gmail.com?subject=${subject}&body=${body}`;
-
-    toast({
-      title: "Otwieram klienta poczty...",
-      description: "Dokończ wysyłanie wiadomości w swojej aplikacji mailowej.",
-    });
+    try {
+      await sendQuoteEmail(formData);
+      toast({
+        title: "✅ Sukces!",
+        description: "Zapytanie zostało wysłane. Odpowiemy Ci wkrótce!",
+      });
+      setFormData({ name: "", email: "", idea: "", effect: "" });
+    } catch (error) {
+      console.error("Error sending quote email:", error);
+      toast({
+        title: "❌ Błąd",
+        description: "Nie udało się wysłać zapytania. Spróbuj ponownie.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -151,10 +157,11 @@ const Quote = () => {
 
               <Button
                 type="submit"
-                className="w-full bg-white text-black hover:bg-white/90 text-lg font-medium py-6 rounded-xl transition-transform hover:scale-[1.01] active:scale-[0.99] shadow-[0_0_20px_rgba(255,255,255,0.2)]"
+                disabled={isSubmitting}
+                className="w-full bg-white text-black hover:bg-white/90 text-lg font-medium py-6 rounded-xl transition-transform hover:scale-[1.01] active:scale-[0.99] shadow-[0_0_20px_rgba(255,255,255,0.2)] disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <Send size={18} className="mr-2" />
-                Wyślij zapytanie
+                {isSubmitting ? "Wysyłam..." : "Wyślij zapytanie"}
               </Button>
             </form>
           </CardContent>
