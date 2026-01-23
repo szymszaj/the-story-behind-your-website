@@ -8,54 +8,7 @@ import {
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-
-const pricingPlans = [
-  {
-    id: 1,
-    name: "Basic",
-    price: "~1099 zł",
-    description: "Idealne rozwiązanie dla małych firm i osób prywatnych.",
-    features: [
-      "Strona typu one-page",
-      "Responsywny design",
-      "Do 5 sekcji",
-      "Formularz kontaktowy",
-      "Podstawowe SEO",
-      "Domena i hosting (w własnym zakresie)",
-    ],
-    popular: false,
-  },
-  {
-    id: 2,
-    name: "Standard",
-    price: "~1500 zł",
-    description:
-      "Rozwiązanie dla rozwijających się biznesów z większymi potrzebami.",
-    features: [
-      "Do 5 podstron",
-      "Responsywny design",
-      "Galeria zdjęć",
-      "Integracja z social media",
-      "Domena i hosting (w własnym zakresie)",
-    ],
-    popular: true,
-  },
-  {
-    id: 3,
-    name: "Custom",
-    price: "Do uzgodnienia",
-    description: "Twoja wizja, Twoje warunki - pełna personalizacja.",
-    features: [
-      "Zaawansowane funkcje",
-      "Dedykowane rozwiązania",
-      "Pełna personalizacja designu",
-      "Priorytetowe wsparcie",
-      "Nielimitowane poprawki",
-    ],
-    popular: false,
-    customStyle: true,
-  },
-];
+import { pricingPlans } from "@/data/pricingPlans";
 
 const Pricing = () => {
   return (
@@ -80,8 +33,8 @@ const Pricing = () => {
                 plan.popular
                   ? "relative bg-gradient-to-b from-secondary/60 to-secondary/20 border-white/10"
                   : plan.customStyle
-                  ? "relative bg-gradient-to-b from-[#9b87f5]/30 to-[#7E69AB]/10 border-white/10"
-                  : "bg-secondary/40"
+                    ? "relative bg-gradient-to-b from-[#9b87f5]/30 to-[#7E69AB]/10 border-white/10"
+                    : "bg-secondary/40"
               }`}
             >
               {plan.popular && (
