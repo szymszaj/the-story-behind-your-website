@@ -7,11 +7,11 @@ import Pricing from "@/components/Pricing";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ParticleBackground from "@/components/ParticleBackground";
+import { setSEOMeta, indexPageSEO } from "@/utils/seo";
 
 const Index = () => {
   useEffect(() => {
-    document.title =
-      "Twoja Strona, Twoja Historia - Tworzę strony internetowe, które opowiadają Twoją historię";
+    setSEOMeta(indexPageSEO);
   }, []);
 
   return (

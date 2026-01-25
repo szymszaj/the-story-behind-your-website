@@ -4,12 +4,13 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { projects } from "@/data/projects";
+import { setSEOMeta, projectsPageSEO } from "@/utils/seo";
 
 const Projects = () => {
   const [currentMobileIndex, setCurrentMobileIndex] = useState(0);
 
   useEffect(() => {
-    document.title = "Projekty | Twoja Strona, Twoja Historia";
+    setSEOMeta(projectsPageSEO);
     window.scrollTo(0, 0);
   }, []);
 

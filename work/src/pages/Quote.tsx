@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
@@ -8,6 +8,7 @@ import ParticleBackground from "@/components/ParticleBackground";
 import { ArrowLeft, Send, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import { sendQuoteEmail } from "@/services/emailService";
+import { setSEOMeta, quotePageSEO } from "@/utils/seo";
 
 const Quote = () => {
   const { toast } = useToast();
@@ -18,6 +19,10 @@ const Quote = () => {
     effect: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    setSEOMeta(quotePageSEO);
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,

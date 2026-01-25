@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { sendContactEmail } from "@/services/emailService";
+import { setSEOMeta, contactPageSEO } from "@/utils/seo";
 import {
   Form,
   FormControl,
@@ -52,7 +53,7 @@ const Contact = () => {
   });
 
   useEffect(() => {
-    document.title = "Kontakt | VisionBoost - Skontaktuj się z nami";
+    setSEOMeta(contactPageSEO);
     window.scrollTo(0, 0);
   }, []);
 
