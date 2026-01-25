@@ -1,8 +1,10 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+
     <title>
       Twoja Strona, Twoja Historia - Tworzę strony internetowe, które opowiadają
       Twoją historię
@@ -11,7 +13,19 @@
       name="description"
       content="Profesjonalne tworzenie stron internetowych, które opowiadają historię Twojej firmy, produktu czy usługi. Responsywne strony dla apartamentów, firm i wydarzeń."
     />
-    <meta name="author" content="Twoja Strona, Twoja Historia" />
+    <meta name="author" content="Szymon Zych - Twoja Strona, Twoja Historia" />
+    <meta
+      name="keywords"
+      content="tworzenie stron, projektowanie www, strony internetowe, responsywne strony, web design, SEO"
+    />
+    <meta
+      name="robots"
+      content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+    />
+    <meta name="language" content="Polish" />
+    <meta name="revisit-after" content="7 days" />
+
+    <link rel="canonical" href="https://twoja-strona-historia.pl/" />
 
     <meta
       property="og:title"
@@ -22,15 +36,88 @@
       content="Profesjonalne tworzenie stron internetowych, które opowiadają historię Twojej firmy, produktu czy usługi."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/img/page.png" />
+    <meta property="og:url" content="https://twoja-strona-historia.pl/" />
+    <meta
+      property="og:image"
+      content="https://twoja-strona-historia.pl/img/page.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Twoja Strona, Twoja Historia" />
+    <meta property="og:locale" content="pl_PL" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="/img/page.png" />
+    <meta
+      name="twitter:title"
+      content="Twoja Strona, Twoja Historia - Tworzę strony internetowe"
+    />
+    <meta
+      name="twitter:description"
+      content="Profesjonalne tworzenie stron internetowych, które opowiadają historię Twojej firmy."
+    />
+    <meta
+      name="twitter:image"
+      content="https://twoja-strona-historia.pl/img/page.png"
+    />
+
+    <meta
+      property="og:image:alt"
+      content="Twoja Strona, Twoja Historia - Profesjonalne tworzenie stron internetowych"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Twoja Strona, Twoja Historia",
+        "description": "Profesjonalne tworzenie stron internetowych, które opowiadają historię Twojej firmy, produktu czy usługi.",
+        "url": "https://twoja-strona-historia.pl",
+        "image": "https://twoja-strona-historia.pl/img/page.png",
+        "priceRange": "$$",
+        "serviceType": ["Web Design", "Web Development"],
+        "areaServed": "PL",
+        "contact": {
+          "@type": "ContactPoint",
+          "telephone": "+48-XXX-XXX-XXX",
+          "contactType": "Customer Service"
+        }
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Twoja Strona, Twoja Historia",
+        "url": "https://twoja-strona-historia.pl",
+        "logo": "https://twoja-strona-historia.pl/img/page.png",
+        "sameAs": [
+          "https://www.facebook.com/",
+          "https://www.linkedin.com/",
+          "https://www.instagram.com/"
+        ],
+        "contact": {
+          "@type": "ContactPoint",
+          "contactType": "Customer Service",
+          "email": "contact@twoja-strona-historia.pl"
+        }
+      }
+    </script>
+
+    <link
+      rel="alternate"
+      hreflang="pl"
+      href="https://twoja-strona-historia.pl/"
+    />
+
+    <link rel="preload" as="script" href="/src/main.tsx" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
   </head>
 
   <body>
     <div id="root"></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
+
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
