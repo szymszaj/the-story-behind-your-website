@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -61,7 +61,15 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      await sendContactEmail(values);
+      await sendContactEmail(
+        values as {
+          name: string;
+          email: string;
+          phone: string;
+          subject: string;
+          message: string;
+        },
+      );
       toast.success("Wiadomość została wysłana!", {
         description: "Skontaktujemy się z Tobą najszybciej jak to możliwe.",
       });
