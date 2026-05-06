@@ -61,7 +61,7 @@ export const socialMediaPlans: PricingPlan[] = [
   {
     id: 1,
     name: "Starter",
-    price: "1 000 zł netto",
+    price: "800 zł netto",
     priceNote: "/ miesiąc",
     description:
       "Pierwsze kroki na Instagramie – stały rytm publikacji bez stresu.",
@@ -79,7 +79,7 @@ export const socialMediaPlans: PricingPlan[] = [
   {
     id: 2,
     name: "Essential",
-    price: "1 500 zł netto",
+    price: "1 200 zł netto",
     priceNote: "/ miesiąc",
     description:
       "Dla marek, które chcą rosnąć z regularnym, różnorodnym contentem.",
@@ -99,7 +99,7 @@ export const socialMediaPlans: PricingPlan[] = [
   {
     id: 3,
     name: "Standard",
-    price: "2 000 zł netto",
+    price: "1 800 zł netto",
     priceNote: "/ miesiąc",
     description:
       "Balans między zasięgiem a angażującym contentem dla rozwijających się marek.",
@@ -119,7 +119,7 @@ export const socialMediaPlans: PricingPlan[] = [
   {
     id: 4,
     name: "Pro",
-    price: "2 500 zł netto",
+    price: "2 100 zł netto",
     priceNote: "/ miesiąc",
     description:
       "Dla marek stawiających na silną obecność i wysokie zasięgi organiczne.",
@@ -140,7 +140,7 @@ export const socialMediaPlans: PricingPlan[] = [
   {
     id: 5,
     name: "Premium",
-    price: "3 000 zł netto",
+    price: "2 800 zł netto",
     priceNote: "/ miesiąc",
     description:
       "Kompleksowa obsługa dla marek premium z dynamicznym wzrostem i autorskim contentem.",
