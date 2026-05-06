@@ -132,7 +132,8 @@ const socialOptions = [
 const Projects = () => {
   const [activeId, setActiveId] = useState<number | null>(null);
   const [activeTab, setActiveTab] = useState<"websites" | "social">("social");
-  const options = activeTab === "websites" ? customizationOptions : socialOptions;
+  const options =
+    activeTab === "websites" ? customizationOptions : socialOptions;
 
   return (
     <section
@@ -152,10 +153,21 @@ const Projects = () => {
             <span className="text-gradient">decydujesz</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            {activeTab === "websites"
-              ? <>Budowa strony to proces, w którym Twoja wizja jest najważniejsza.<br className="hidden md:block" /> Kliknij kafelki poniżej, aby zobaczyć, jak budujemy Twój sukces.</>
-              : <>Obsługa social mediów to przemyślany proces, nie przypadkowe posty.<br className="hidden md:block" /> Kliknij kafelki, aby zobaczyć, jak wygląda nasza współpraca.</>
-            }
+            {activeTab === "websites" ? (
+              <>
+                Budowa strony to proces, w którym Twoja wizja jest
+                najważniejsza.
+                <br className="hidden md:block" /> Kliknij kafelki poniżej, aby
+                zobaczyć, jak budujemy Twój sukces.
+              </>
+            ) : (
+              <>
+                Obsługa social mediów to przemyślany proces, nie przypadkowe
+                posty.
+                <br className="hidden md:block" /> Kliknij kafelki, aby
+                zobaczyć, jak wygląda nasza współpraca.
+              </>
+            )}
           </p>
         </div>
 
@@ -163,7 +175,10 @@ const Projects = () => {
         <div className="flex justify-center mb-12">
           <div className="flex p-1.5 bg-secondary/60 border border-white/10 rounded-full gap-1 shadow-lg">
             <button
-              onClick={() => { setActiveTab("websites"); setActiveId(null); }}
+              onClick={() => {
+                setActiveTab("websites");
+                setActiveId(null);
+              }}
               className={`flex items-center gap-2.5 px-7 py-3.5 rounded-full font-semibold text-sm transition-all duration-300 ${
                 activeTab === "websites"
                   ? "bg-foreground text-background shadow-md"
@@ -174,7 +189,10 @@ const Projects = () => {
               Strony internetowe
             </button>
             <button
-              onClick={() => { setActiveTab("social"); setActiveId(null); }}
+              onClick={() => {
+                setActiveTab("social");
+                setActiveId(null);
+              }}
               className={`flex items-center gap-2.5 px-7 py-3.5 rounded-full font-semibold text-sm transition-all duration-300 ${
                 activeTab === "social"
                   ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md"

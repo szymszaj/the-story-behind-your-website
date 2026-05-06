@@ -15,7 +15,7 @@ const Quote = () => {
   const { toast } = useToast();
   const [searchParams] = useSearchParams();
   const [serviceType, setServiceType] = useState<"websites" | "social">(
-    searchParams.get("type") === "social" ? "social" : "websites"
+    searchParams.get("type") === "social" ? "social" : "websites",
   );
   const [formData, setFormData] = useState({
     name: "",
@@ -116,11 +116,13 @@ const Quote = () => {
         </div>
 
         <Card className="glass-card border-white/10 overflow-hidden">
-          <div className={`absolute top-0 left-0 w-full h-1 opacity-50 ${
-            isSocial
-              ? "bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500"
-              : "bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-500"
-          }`} />
+          <div
+            className={`absolute top-0 left-0 w-full h-1 opacity-50 ${
+              isSocial
+                ? "bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500"
+                : "bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-500"
+            }`}
+          />
 
           <CardContent className="p-8 md:p-12">
             <form onSubmit={handleSubmit} className="space-y-8">
