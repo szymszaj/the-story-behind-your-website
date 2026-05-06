@@ -8,6 +8,13 @@ import {
   Newspaper,
   LayoutList,
   CheckCircle2,
+  Globe,
+  Instagram,
+  CalendarDays,
+  Clapperboard,
+  ImagePlay,
+  BarChart2,
+  MessageCircleHeart,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -65,8 +72,67 @@ const customizationOptions = [
   },
 ];
 
+const socialOptions = [
+  {
+    id: 1,
+    title: "Strategia komunikacji",
+    description: "Ton, tematyka i plan działania.",
+    icon: <LayoutGrid size={32} />,
+    category: "Strategia",
+    details:
+      "Tworzymy spójną ideę kreatywną, która określa jak, kiedy i do kogo mówisz — zanim pojawi się pierwsza publikacja.",
+  },
+  {
+    id: 2,
+    title: "Harmonogram postów",
+    description: "Regularność, która buduje zasięg.",
+    icon: <CalendarDays size={32} />,
+    category: "Planowanie",
+    details:
+      "Każdy post, rolka i set stories jest zaplanowany z wyprzedzeniem w uzgodnionym kalendarzu publikacji.",
+  },
+  {
+    id: 3,
+    title: "Grafiki i posty",
+    description: "Wizualna tożsamość Twojej marki.",
+    icon: <Palette size={32} />,
+    category: "Kreacja",
+    details:
+      "Tworzymy posty z materiałów przekazanych przez Ciebie: zdjęcia, karuzele, grafiki — spójne z Twoim brandem.",
+  },
+  {
+    id: 4,
+    title: "Rolki i wideo",
+    description: "Content, który żyje i angażuje.",
+    icon: <Clapperboard size={32} />,
+    category: "Video",
+    details:
+      "Montujemy rolki z Twoich materiałów lub tworzymy autorskie wideo nagrywane telefonem — gotowe do publikacji.",
+  },
+  {
+    id: 5,
+    title: "Instastories",
+    description: "Bieżąca komunikacja z odbiorcami.",
+    icon: <ImagePlay size={32} />,
+    category: "Stories",
+    details:
+      "Tworzymy sety do 5 kafelków, udostępniamy posty i relacje innych twórców z oznaczeniem profilu klienta.",
+  },
+  {
+    id: 6,
+    title: "Moderacja i analityka",
+    description: "Reakcja i raportowanie wyników.",
+    icon: <BarChart2 size={32} />,
+    category: "Wyniki",
+    details:
+      "Moderujemy komentarze, przekazujemy wiadomości prywatne i spotykamy się co miesiąc, by omawiać efekty.",
+  },
+];
+
 const Projects = () => {
   const [activeId, setActiveId] = useState<number | null>(null);
+  const [activeTab, setActiveTab] = useState<"websites" | "social">("social");
+  const options = activeTab === "websites" ? customizationOptions : socialOptions;
 
   return (
     <section
@@ -77,7 +143,7 @@ const Projects = () => {
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-3xl -z-10" />
 
       <div className="container-wide">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <span className="text-sm font-medium text-indigo-400 tracking-wider uppercase mb-2 block">
             Proces Tworzenia
           </span>
@@ -86,14 +152,43 @@ const Projects = () => {
             <span className="text-gradient">decydujesz</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Budowa strony to proces, w którym Twoja wizja jest najważniejsza.
-            <br className="hidden md:block" />
-            Kliknij kafelki poniżej, aby zobaczyć, jak budujemy Twój sukces.
+            {activeTab === "websites"
+              ? <>Budowa strony to proces, w którym Twoja wizja jest najważniejsza.<br className="hidden md:block" /> Kliknij kafelki poniżej, aby zobaczyć, jak budujemy Twój sukces.</>
+              : <>Obsługa social mediów to przemyślany proces, nie przypadkowe posty.<br className="hidden md:block" /> Kliknij kafelki, aby zobaczyć, jak wygląda nasza współpraca.</>
+            }
           </p>
         </div>
 
+        {/* Switcher */}
+        <div className="flex justify-center mb-12">
+          <div className="flex p-1.5 bg-secondary/60 border border-white/10 rounded-full gap-1 shadow-lg">
+            <button
+              onClick={() => { setActiveTab("websites"); setActiveId(null); }}
+              className={`flex items-center gap-2.5 px-7 py-3.5 rounded-full font-semibold text-sm transition-all duration-300 ${
+                activeTab === "websites"
+                  ? "bg-foreground text-background shadow-md"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              <Globe size={18} />
+              Strony internetowe
+            </button>
+            <button
+              onClick={() => { setActiveTab("social"); setActiveId(null); }}
+              className={`flex items-center gap-2.5 px-7 py-3.5 rounded-full font-semibold text-sm transition-all duration-300 ${
+                activeTab === "social"
+                  ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              <Instagram size={18} />
+              Social Media
+            </button>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative">
-          {customizationOptions.map((option) => (
+          {options.map((option) => (
             <div
               key={option.id}
               onClick={() =>

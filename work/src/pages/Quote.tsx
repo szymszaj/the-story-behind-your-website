@@ -1,17 +1,22 @@
 import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/components/ui/use-toast";
 import ParticleBackground from "@/components/ParticleBackground";
-import { ArrowLeft, Send, Sparkles } from "lucide-react";
+import { ArrowLeft, Send, Sparkles, Globe, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
 import { sendQuoteEmail } from "@/services/emailService";
 import { setSEOMeta, quotePageSEO } from "@/utils/seo";
 
 const Quote = () => {
   const { toast } = useToast();
+  const [searchParams] = useSearchParams();
+  const [serviceType, setServiceType] = useState<"websites" | "social">(
+    searchParams.get("type") === "social" ? "social" : "websites"
+  );
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -36,7 +41,7 @@ const Quote = () => {
     setIsSubmitting(true);
 
     try {
-      await sendQuoteEmail(formData);
+      await sendQuoteEmail({ ...formData, serviceType });
       toast({
         title: "✅ Sukces!",
         description: "Zapytanie zostało wysłane. Odpowiemy Ci wkrótce!",
@@ -53,6 +58,8 @@ const Quote = () => {
     }
   };
 
+  const isSocial = serviceType === "social";
+
   return (
     <div className="min-h-screen relative flex items-center justify-center p-4">
       <ParticleBackground />
@@ -68,19 +75,52 @@ const Quote = () => {
       </Link>
 
       <div className="w-full max-w-4xl relative z-10 animate-fade-in-up">
-        <div className="text-center mb-10">
+        <div className="text-center mb-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Rozpocznijmy <span className="text-gradient">coś wielkiego</span>
           </h1>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-8">
             Wypełnij krótki formularz, abyśmy mogli lepiej zrozumieć Twoje
-            potrzeby. To pierwszy krok do stworzenia strony, która wyróżni Cię z
-            tłumu.
+            potrzeby i przygotować dla Ciebie najlepszą ofertę.
           </p>
+
+          {/* Service type switcher */}
+          <div className="flex justify-center">
+            <div className="flex p-1.5 bg-secondary/60 border border-white/10 rounded-full gap-1 shadow-lg">
+              <button
+                type="button"
+                onClick={() => setServiceType("websites")}
+                className={`flex items-center gap-2 px-5 py-3 rounded-full font-semibold text-sm transition-all duration-300 ${
+                  !isSocial
+                    ? "bg-foreground text-background shadow-md"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                <Globe size={16} />
+                Strona internetowa
+              </button>
+              <button
+                type="button"
+                onClick={() => setServiceType("social")}
+                className={`flex items-center gap-2 px-5 py-3 rounded-full font-semibold text-sm transition-all duration-300 ${
+                  isSocial
+                    ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                <Instagram size={16} />
+                Social Media
+              </button>
+            </div>
+          </div>
         </div>
 
         <Card className="glass-card border-white/10 overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-500 opacity-50" />
+          <div className={`absolute top-0 left-0 w-full h-1 opacity-50 ${
+            isSocial
+              ? "bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500"
+              : "bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-500"
+          }`} />
 
           <CardContent className="p-8 md:p-12">
             <form onSubmit={handleSubmit} className="space-y-8">
@@ -129,12 +169,16 @@ const Quote = () => {
                   className="flex items-center gap-2 text-sm font-medium text-indigo-200 ml-1"
                 >
                   <Sparkles size={14} className="text-indigo-400" />
-                  Twój pomysł na stronę
+                  {isSocial ? "Twój profil / marka" : "Twój pomysł na stronę"}
                 </label>
                 <Textarea
                   id="idea"
                   name="idea"
-                  placeholder="Opisz czym zajmuje się Twoja firma, jaki produkt/usługę chcesz promować..."
+                  placeholder={
+                    isSocial
+                      ? "Opisz czym zajmuje się Twoja firma, kto jest Twoją grupą docelową i na jakiej platformie chcesz działać..."
+                      : "Opisz czym zajmuje się Twoja firma, jaki produkt/usługę chcesz promować..."
+                  }
                   value={formData.idea}
                   onChange={handleChange}
                   className="bg-black/20 border-white/10 focus:border-indigo-500/50 min-h-[120px] text-base placeholder:text-white/20 resize-none"
@@ -147,12 +191,16 @@ const Quote = () => {
                   htmlFor="effect"
                   className="text-sm font-medium text-indigo-200 ml-1"
                 >
-                  Oczekiwany efekt
+                  {isSocial ? "Oczekiwane rezultaty" : "Oczekiwany efekt"}
                 </label>
                 <Textarea
                   id="effect"
                   name="effect"
-                  placeholder="Jakie cele ma spełniać strona? (np. sprzedaż, wizerunek, portfolio)"
+                  placeholder={
+                    isSocial
+                      ? "Co chcesz osiągnąć? (np. wzrost zasięgów, rozpoznawalność marki, sprzedaż przez Instagram)"
+                      : "Jakie cele ma spełniać strona? (np. sprzedaż, wizerunek, portfolio)"
+                  }
                   value={formData.effect}
                   onChange={handleChange}
                   className="bg-black/20 border-white/10 focus:border-indigo-500/50 min-h-[120px] text-base placeholder:text-white/20 resize-none"

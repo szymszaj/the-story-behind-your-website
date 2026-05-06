@@ -63,7 +63,8 @@ export const socialMediaPlans: PricingPlan[] = [
     name: "Starter",
     price: "1 000 zł netto",
     priceNote: "/ miesiąc",
-    description: "Pierwsze kroki na Instagramie – stały rytm publikacji bez stresu.",
+    description:
+      "Pierwsze kroki na Instagramie – stały rytm publikacji bez stresu.",
     features: [
       "Harmonogram postów zgodny z planem komunikacji",
       "8 postów (zdjęcia, karuzele, grafiki) z materiałów klienta",
@@ -80,7 +81,8 @@ export const socialMediaPlans: PricingPlan[] = [
     name: "Essential",
     price: "1 500 zł netto",
     priceNote: "/ miesiąc",
-    description: "Dla marek, które chcą rosnąć z regularnym, różnorodnym contentem.",
+    description:
+      "Dla marek, które chcą rosnąć z regularnym, różnorodnym contentem.",
     features: [
       "Harmonogram postów zgodny z planem komunikacji",
       "10 postów (zdjęcia, karuzele, grafiki) z materiałów klienta",
@@ -99,7 +101,8 @@ export const socialMediaPlans: PricingPlan[] = [
     name: "Standard",
     price: "2 000 zł netto",
     priceNote: "/ miesiąc",
-    description: "Balans między zasięgiem a angażującym contentem dla rozwijających się marek.",
+    description:
+      "Balans między zasięgiem a angażującym contentem dla rozwijających się marek.",
     features: [
       "Harmonogram postów zgodny z planem komunikacji",
       "6 postów (zdjęcia, karuzele, grafiki) z materiałów klienta",
@@ -118,7 +121,8 @@ export const socialMediaPlans: PricingPlan[] = [
     name: "Pro",
     price: "2 500 zł netto",
     priceNote: "/ miesiąc",
-    description: "Dla marek stawiających na silną obecność i wysokie zasięgi organiczne.",
+    description:
+      "Dla marek stawiających na silną obecność i wysokie zasięgi organiczne.",
     features: [
       "Harmonogram postów zgodny z planem komunikacji",
       "4 posty (zdjęcia, karuzele, grafiki) z materiałów klienta",
@@ -138,7 +142,8 @@ export const socialMediaPlans: PricingPlan[] = [
     name: "Premium",
     price: "3 000 zł netto",
     priceNote: "/ miesiąc",
-    description: "Kompleksowa obsługa dla marek premium z dynamicznym wzrostem i autorskim contentem.",
+    description:
+      "Kompleksowa obsługa dla marek premium z dynamicznym wzrostem i autorskim contentem.",
     features: [
       "Harmonogram postów zgodny z planem komunikacji",
       "4 posty (zdjęcia, karuzele, grafiki) z materiałów klienta",
@@ -154,4 +159,3 @@ export const socialMediaPlans: PricingPlan[] = [
     popular: false,
   },
 ];
-

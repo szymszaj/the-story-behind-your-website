@@ -6,14 +6,31 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Check, Globe, Instagram, ChevronDown, ChevronUp, Info } from "lucide-react";
+import {
+  Check,
+  Globe,
+  Instagram,
+  ChevronDown,
+  ChevronUp,
+  Info,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { pricingPlans, socialMediaPlans, PricingPlan } from "@/data/pricingPlans";
+import {
+  pricingPlans,
+  socialMediaPlans,
+  PricingPlan,
+} from "@/data/pricingPlans";
 
 const COLLAPSE_THRESHOLD = 6;
 
-const PricingCard = ({ plan, isSocial }: { plan: PricingPlan; isSocial: boolean }) => {
+const PricingCard = ({
+  plan,
+  isSocial,
+}: {
+  plan: PricingPlan;
+  isSocial: boolean;
+}) => {
   const [expanded, setExpanded] = useState(false);
   const needsExpand = plan.features.length > COLLAPSE_THRESHOLD;
 
@@ -48,10 +65,15 @@ const PricingCard = ({ plan, isSocial }: { plan: PricingPlan; isSocial: boolean 
           <div className="mt-4 flex items-end gap-2">
             <span className="text-3xl font-bold">{plan.price}</span>
             {plan.priceNote && (
-              <span className="text-sm text-muted-foreground mb-0.5">{plan.priceNote}</span>
+              <span className="text-sm text-muted-foreground mb-0.5">
+                {plan.priceNote}
+              </span>
             )}
             <div className="relative group mb-0.5 ml-1">
-              <Info size={15} className="text-muted-foreground/60 hover:text-muted-foreground cursor-default transition-colors" />
+              <Info
+                size={15}
+                className="text-muted-foreground/60 hover:text-muted-foreground cursor-default transition-colors"
+              />
               <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-52 px-3 py-2 rounded-lg bg-popover border border-white/10 text-xs text-muted-foreground shadow-lg opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-200 z-20 text-center leading-relaxed">
                 Cena ulega zmianie w zależności od zapotrzebowania klienta
                 <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-white/10" />
@@ -71,7 +93,10 @@ const PricingCard = ({ plan, isSocial }: { plan: PricingPlan; isSocial: boolean 
             >
               {plan.features.map((feature, index) => (
                 <li key={index} className="flex items-start">
-                  <Check size={16} className="mr-2 text-green-400 flex-shrink-0 mt-0.5" />
+                  <Check
+                    size={16}
+                    className="mr-2 text-green-400 flex-shrink-0 mt-0.5"
+                  />
                   <span className="text-sm">{feature}</span>
                 </li>
               ))}
@@ -88,16 +113,23 @@ const PricingCard = ({ plan, isSocial }: { plan: PricingPlan; isSocial: boolean 
               className="mt-3 w-full flex items-center justify-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors py-1.5"
             >
               {expanded ? (
-                <><ChevronUp size={14} /> Zwiń</>
+                <>
+                  <ChevronUp size={14} /> Zwiń
+                </>
               ) : (
-                <><ChevronDown size={14} /> Rozwiń więcej</>
+                <>
+                  <ChevronDown size={14} /> Rozwiń więcej
+                </>
               )}
             </button>
           )}
         </CardContent>
 
         <CardFooter className="pt-2">
-          <Link to="/quote" className="w-full">
+          <Link
+            to={`/quote?type=${isSocial ? "social" : "websites"}`}
+            className="w-full"
+          >
             <Button
               className="w-full"
               variant={plan.popular || plan.customStyle ? "default" : "outline"}
@@ -157,7 +189,11 @@ const Pricing = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {plans.map((plan) => (
-            <PricingCard key={plan.id} plan={plan} isSocial={activeTab === "social"} />
+            <PricingCard
+              key={plan.id}
+              plan={plan}
+              isSocial={activeTab === "social"}
+            />
           ))}
         </div>
 
