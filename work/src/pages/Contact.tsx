@@ -150,23 +150,6 @@ const Contact = () => {
                   </div>
                 </div>
               </div>
-
-              <div className="pt-6">
-                <h3 className="text-white font-medium mb-4">
-                  Znajdź nas w social mediach
-                </h3>
-                <div className="flex gap-4">
-                  {[Github, Linkedin].map((Icon, i) => (
-                    <a
-                      key={i}
-                      href="#"
-                      className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-muted-foreground hover:bg-indigo-500 hover:text-white transition-all duration-300 border border-white/5 hover:scale-110"
-                    >
-                      <Icon size={20} />
-                    </a>
-                  ))}
-                </div>
-              </div>
             </div>
 
             <div className="glass-card p-6 md:p-8 rounded-2xl animate-fade-in-up delay-100">
