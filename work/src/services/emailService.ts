@@ -46,10 +46,11 @@ export const sendQuoteEmail = async (formData: {
       import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID,
       {
         to_email: import.meta.env.VITE_EMAIL_TO,
-        from_email: formData.email,
-        from_name: formData.name,
-        idea: formData.idea,
-        effect: formData.effect,
+        name: formData.name,
+        email: formData.email,
+        phone: "",
+        subject: "Zapytanie o wycenę",
+        message: `Pomysł / Projekt:\n${formData.idea}\n\nOczekiwany efekt:\n${formData.effect}`,
       },
     );
 

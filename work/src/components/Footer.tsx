@@ -37,7 +37,7 @@ const Footer = () => {
         text: "szymonzych936@gmail.com",
         href: "mailto:szymonzych936@gmail.com",
       },
-      { icon: <MapPin size={16} />, text: "Warszawa, Polska", href: "#" },
+      { icon: <MapPin size={16} />, text: "Polska", href: "#" },
     ],
   };
 

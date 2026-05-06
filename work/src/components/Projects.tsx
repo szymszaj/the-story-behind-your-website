@@ -70,7 +70,7 @@ const Projects = () => {
 
   return (
     <section
-      id="projects"
+      id="process"
       className="section-padding bg-background relative overflow-hidden"
     >
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-3xl -z-10" />

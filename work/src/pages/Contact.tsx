@@ -143,7 +143,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="text-white font-medium mb-1">Lokalizacja</h3>
-                    <p className="text-muted-foreground">Warszawa, Polska</p>
+                    <p className="text-muted-foreground">Polska</p>
                     <p className="text-xs text-muted-foreground mt-1">
                       Obsługujemy klientów globalnie
                     </p>
