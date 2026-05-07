@@ -79,7 +79,7 @@ export const socialMediaPlans: PricingPlan[] = [
   {
     id: 2,
     name: "Standard",
-    price: "1 800 zł netto",
+    price: "1 300 zł netto",
     priceNote: "/ miesiąc",
     description:
       "Balans między zasięgiem a angażującym contentem dla rozwijających się marek.",
@@ -95,7 +95,7 @@ export const socialMediaPlans: PricingPlan[] = [
   {
     id: 3,
     name: "Pro",
-    price: "2 100 zł netto",
+    price: "1 800 zł netto",
     priceNote: "/ miesiąc",
     description:
       "Dla marek stawiających na silną obecność i wysokie zasięgi organiczne.",
