@@ -85,6 +85,14 @@ const PricingCard = ({
         <CardContent className="pb-2">
           <p className="text-muted-foreground mb-5">{plan.description}</p>
 
+          {plan.includesFrom && (
+            <div className="flex items-center gap-2 mb-4 px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-xs text-indigo-300">
+              <Check size={13} className="text-indigo-400 flex-shrink-0" />
+              Wszystko z{" "}
+              <span className="font-semibold">{plan.includesFrom}</span> +
+            </div>
+          )}
+
           <div className="relative">
             <ul
               className={`space-y-3 overflow-hidden transition-all duration-500 ease-in-out ${
