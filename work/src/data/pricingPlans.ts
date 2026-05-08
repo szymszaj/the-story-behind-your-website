@@ -14,7 +14,7 @@ export const pricingPlans: PricingPlan[] = [
   {
     id: 1,
     name: "Basic",
-    price: "~1099 zł",
+    price: "~999 zł",
     description: "Idealne rozwiązanie dla małych firm i osób prywatnych.",
     features: [
       "Strona typu one-page",
